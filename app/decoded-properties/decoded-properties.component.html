@@ -1,0 +1,38 @@
+<ng-template [ngIf]="isLoading == false && this.service.ShowAlert == false"> 
+  <form class="container">
+  <div class="close-logo" >
+    <button  routerLink="/AnalyzedData"  type="button" >
+      <mat-mini-fab color="primary"> 
+        <mat-icon >close</mat-icon>
+      </mat-mini-fab>
+    </button>
+  </div>
+  <div class="brand-logo"></div>
+  <div class="brand-title">{{aircraftName}}<br> <br> Decoded Frame<br>Properties</div>
+  <div class="inputs">
+  <label> Communication Type</label>
+  <div>
+    <input type="radio" id="control_01" name="select" value="0" (change) = "radioChangeHandler($event)"  >
+    <label class="radio-label" for="control_01">
+      <p><br>uplink</p>
+    </label>
+  </div>
+  <div>
+    <input type="radio" id="control_02" name="select" value="1" (change) = "radioChangeHandler($event)">
+    <label class="radio-label" for="control_02">
+      <p><br>downlink</p>
+    </label>
+    <br>
+    <br>
+    <br>
+  </div >
+  <div>
+    <label for="quantity">Transmition Rate (in miliseconds)</label>
+    <input type="number" [(ngModel)]= "transitionRate" id="quantity" name="quantity" (change) = "rateChange($event)">
+  </div>
+</div>
+<button (click)="saveData()" class="save-button" type="button" >SAVE</button><br>
+  <br><br>
+</form>
+</ng-template>
+<router-outlet></router-outlet>
